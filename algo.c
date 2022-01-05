@@ -142,7 +142,7 @@ void permutation(pgraph g, int *arr, int start, int end)
     }
 }
 
-void tsp(pgraph graph, int citis[], int num){
+void tsp(pgraph graph, int cities[], int num){
     #ifdef DEBUG
     printf("\t{TSP (%d) %d", num, citis[0]);
     for(int i=1; i<num;i++) printf(" -> %d", citis[i]);
@@ -150,7 +150,7 @@ void tsp(pgraph graph, int citis[], int num){
     #endif
 
     min_weight = INT_MAX;
-    permutation(graph, citis, 0, num-1); // Check all possibles routes
+    permutation(graph, cities, 0, num-1); // Check all possibles routes
     if(min_weight == INT_MAX) min_weight = -1; 
     printf("TSP shortest path: %d \n", min_weight);
 }

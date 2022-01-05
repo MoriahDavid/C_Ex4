@@ -132,16 +132,18 @@ int main(){
 
                     scanf("%c", &in); // Get the space
                     int num = get_number_until_space(0);
-                    int* citis = (int*) malloc(sizeof(int)*num);
+                    int* cities = (int*) malloc(sizeof(int)*num);
 
                     for(int i=0;i<num; i++){
-                        citis[i] = get_number_until_space(0);
+                        cities[i] = get_number_until_space(0);
                     }
-                    tsp(p_g, citis, num);
+                    tsp(p_g, cities, num);
+                    free(cities);
                 }
                 break;
 
             case ' ':
+                empty_graph(p_g);
                 return 0;
                 break;
 
