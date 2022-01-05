@@ -1,4 +1,4 @@
-// #define DEBUG
+// #define DEBUG // Use for debug mode
 
 
 #ifndef GRAPH_

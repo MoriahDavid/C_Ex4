@@ -141,7 +141,13 @@ void permutation(pgraph g, int *arr, int start, int end)
         swap((arr+i), (arr+start));
     }
 }
-
+/**
+ * @brief Prints the lenght of the tsp
+ * 
+ * @param graph 
+ * @param cities 
+ * @param num 
+ */
 void tsp(pgraph graph, int cities[], int num){
     #ifdef DEBUG
     printf("\t{TSP (%d) %d", num, citis[0]);

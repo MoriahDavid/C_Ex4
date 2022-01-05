@@ -52,8 +52,10 @@ int main(){
 
                     // Create new Graph
                     scanf("%c", &in); // Get the space
-                    int n_size = get_number_until_space(0);
-                    #ifdef DEBUG
+                    #ifndef DEBUG
+                    get_number_until_space(0); // Our code didn't need to use the size 
+                    #else
+                    int n_size = get_number_until_space(0); // Get and print the size on debug mode
                     printf("{A cmd {%d}}\n", n_size);
                     #endif
 
@@ -92,7 +94,7 @@ int main(){
                     printf("{B cmd}\n");
                     #endif
 
-                    in='n';
+                    in='n'; // 'B' mode is like 'n' mode so change the mode and use is.
                     have_next_cmd =1;
                 }
                 break;
@@ -142,17 +144,10 @@ int main(){
                 }
                 break;
 
-            case ' ':
+            case ' ': // The end of the input.
                 empty_graph(p_g);
                 return 0;
                 break;
-
-            case '\n':
-                return 0;
-
-            case EOF:
-                return 0;
-
 
             default:
                 break;
