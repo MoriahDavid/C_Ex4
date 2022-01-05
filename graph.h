@@ -1,4 +1,4 @@
-#define DEBUG
+// #define DEBUG
 
 
 #ifndef GRAPH_
@@ -7,7 +7,7 @@
 typedef struct GRAPH_NODE_ *pnode;;
 
 typedef struct edge_ {
-    int weight;
+    unsigned int weight;
     pnode endpoint;
     struct edge_ *next;
 } edge, *pedge;
@@ -17,10 +17,13 @@ typedef struct GRAPH_NODE_ {
     int node_num;
     pedge edges;
     struct GRAPH_NODE_ *next;
+    int weight;
+    int visited;    
 } node, *pnode;
 
 typedef struct G_{
     pnode nodes;
+    int size;
 } graph, *pgraph;
 
 

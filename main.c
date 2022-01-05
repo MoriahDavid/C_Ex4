@@ -15,6 +15,7 @@ void empty_graph(pgraph g){
         delete_node(g, to_delete);
     }
     g->nodes = NULL;
+    g->size = 0;
 }
 
 int get_number_until_space(char start){
@@ -36,6 +37,7 @@ int main(){
     char in = ' ';
     graph g;
     g.nodes = NULL;
+    g.size = 0;
     pgraph p_g = &g;
     int have_next_cmd = 0;
 
@@ -43,9 +45,7 @@ int main(){
         if(have_next_cmd == 0){
             scanf("%c", &in);
         }
-        // #ifdef DEBUG
-        // printf("{input:(%c)}", in);
-        // #endif
+        
         have_next_cmd = 0;
         switch (in){
             case 'A':{

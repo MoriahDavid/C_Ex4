@@ -15,6 +15,7 @@ pnode get_or_create_node(pgraph graph, int id){
     n->node_num = id;
     n->edges = NULL;
     graph->nodes = n;
+    graph->size++;
     return n;
 }
 
@@ -87,6 +88,7 @@ pnode create_node(pgraph graph, int id){
         n->edges = NULL;
         n->next = graph->nodes;
         graph->nodes = n;
+        graph->size++;
     }
     return n;
 }
@@ -98,12 +100,14 @@ void delete_node(pgraph graph, pnode node){
     if(n->node_num == node->node_num){ // 'node' is the graph head
         graph->nodes = node->next;
         free(node);
+        graph->size--;
         return;
     }
     while(n->next != NULL){ // 'node' is in the nodes linked list
         if(n->next->node_num == node->node_num){ // find who point 'node' and change it.
             n->next = node->next;
             free(node);
+            graph->size--;
             return;
         }
         n = n->next;
